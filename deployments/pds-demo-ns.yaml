@@ -1,0 +1,9 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  labels:
+    pds.portworx.com/available: "true"
+  name: pds-demo
+spec:
+  finalizers:
+  - kubernetes

@@ -1,0 +1,23 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: fruits-app
+  namespace: pds-demo
+  labels:
+    app: fruits-app
+    app.kubernetes.io/component: fruits-app
+    app.kubernetes.io/instance: fruits-app
+    app.kubernetes.io/name: fruits-app
+    app.kubernetes.io/part-of: fruits-app
+    app.openshift.io/runtime-version: 1.0-jvm
+spec:
+  to:
+    kind: Service
+    name: fruits-app
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

@@ -1,0 +1,30 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: fruits-app
+  namespace: pds-demo
+  labels:
+    app: fruits-app
+    app.kubernetes.io/component: fruits-app
+    app.kubernetes.io/instance: fruits-app
+    app.kubernetes.io/name: fruits-app
+    app.kubernetes.io/part-of: fruits-app
+    app.openshift.io/runtime-version: 1.0-jvm
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: 8443-tcp
+      protocol: TCP
+      port: 8443
+      targetPort: 8443
+    - name: 8778-tcp
+      protocol: TCP
+      port: 8778
+      targetPort: 8778
+  type: ClusterIP
+  selector:
+    app: fruits-app
+    deployment: fruits-app
